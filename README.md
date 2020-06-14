@@ -6,8 +6,9 @@ Help Desk ve Ticket Yönetim Sistemi Uygulaması. ReactJS, Typescript, Strapi Ba
 
 ### Auth
 
-[ ] Kullanıcı Girişi
+[x] Kullanıcı Giriş Ekranı
 [ ] Üye Olma Ekranı
+[ ] Kullanıcı Giriş Api
 [ ] Auth Check ve Token Kontrolü
 
 ### Dashboard
