@@ -27,5 +27,5 @@ Help Desk ve Ticket Yönetim Sistemi Uygulaması. ReactJS, Typescript, Strapi Ba
 
 ### User
 
-[ ] Profilini görüntüleme
-[ ] Profilini güncelleme
+- [ ] Profilini görüntüleme
+- [ ] Profilini güncelleme
