@@ -1,12 +1,11 @@
 import React from 'react';
-import './LoginScreen.css';
 import axios from 'axios';
 import { apiURL } from '../../constants/';
 import Layout from '../../components/Layout';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
-
+import { saveToken } from 'src/utils';
 
 const LoginScreen = () => {
   const history = useHistory();
@@ -31,10 +30,12 @@ const LoginScreen = () => {
           password
         })
         .then(res => {
-          console.log(res.status);
-          if (res.status === 200) {
+          const token = res.data.jwt;
+          if(token){
+            saveToken(token);
             history.push('/');
           }
+
         })
         .catch(err => {
           console.log(err);
