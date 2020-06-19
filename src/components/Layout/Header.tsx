@@ -5,7 +5,7 @@ import { apiURL } from 'src/constants';
 import { useHistory } from 'react-router-dom';
 
 const Header = () => {
-  const [username, setUsername] = useState('');
+  const [fullName, setFullName] = useState('');
   const history = useHistory();
   useEffect(() => {
     const token = getToken();
@@ -18,7 +18,7 @@ const Header = () => {
         })
         .then(res => {
           if (res.data) {
-            setUsername(res.data.username);
+            setFullName(`${res.data.name} ${res.data.lastName}`);
           } else {
             history.push('/login');
           }
@@ -39,7 +39,7 @@ const Header = () => {
   };
   return (
     <div className="flex justify-between mb-10">
-      <p className="mr-2">Hello:, {username}</p>
+      <p className="mr-2">Merhaba: {fullName}</p>
       <button
         type="button"
         className=" transition-all transition duration-1000 ease-in-out bg-blue-800 w-full sm:w-auto font-bold uppercase text-white rounded py-1 px-2 text-xs shadow-md hover:bg-red-900"

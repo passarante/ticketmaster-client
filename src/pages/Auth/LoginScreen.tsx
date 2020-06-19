@@ -4,8 +4,8 @@ import { apiURL } from '../../constants/';
 import Layout from '../../components/Layout';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useHistory } from 'react-router-dom';
-import { saveToken } from 'src/utils';
+import { useHistory, Link } from 'react-router-dom';
+import { saveToken, swalToast } from 'src/utils';
 
 const LoginScreen = () => {
   const history = useHistory();
@@ -31,14 +31,19 @@ const LoginScreen = () => {
         })
         .then(res => {
           const token = res.data.jwt;
-          if(token){
+          if (token) {
             saveToken(token);
             history.push('/');
           }
-
         })
         .catch(err => {
           console.log(err);
+          const Toast: any = swalToast('top-end', 3000);
+
+          Toast.fire({
+            icon: 'error',
+            title: 'Giriş yapılamadı. Bilgilerinizi kontrol edip tekrar deneyin'
+          });
         });
     }
   });
@@ -106,6 +111,12 @@ const LoginScreen = () => {
                 value="Giriş"
                 className="bg-gray-800 w-full mt-5 p-2 text-white uppercase hover:bg-gray-900 "
               />
+              <div className="mt-4 text-center">
+                Hesabınız yok mu? Üye olmak için{' '}
+                <strong className="text-red-800">
+                  <Link to="/register">tıklayın</Link>
+                </strong>
+              </div>
             </form>
           </div>
         </div>

@@ -28,13 +28,17 @@ const Layout = ({ children }) => {
         })
         .catch(err => {
           if (err.response.data.statusCode === 401) {
-            history.push('/login');
+            if (pathName !== '/register') {
+              history.push('/login');
+            }
           }
         });
     } else {
-      history.push('/login');
+      if (pathName !== '/register') {
+        history.push('/login');
+      }
     }
-  }, [history]);
+  }, [history, pathName]);
 
   return (
     <>
