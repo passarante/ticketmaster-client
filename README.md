@@ -14,7 +14,7 @@ Help Desk ve Ticket Yönetim Sistemi Uygulaması. ReactJS, Typescript, Strapi Ba
 
 ### Dashboard
 
-- [ ] Side Menu
+- [x] Side Menu
 - [ ] Rapor Kartları
 
 ### Ticket

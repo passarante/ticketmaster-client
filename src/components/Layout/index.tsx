@@ -21,7 +21,12 @@ const Layout = ({ children }) => {
         })
         .then(res => {
           if (res.data) {
-            history.push('/');
+            if (pathName !== '/login') {
+              history.push(pathName);
+            } else if (pathName === '/login') {
+              history.push('/');
+            }
+            // history.push('/');
           } else {
             history.push('/login');
           }
